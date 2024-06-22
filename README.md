@@ -1,4 +1,3 @@
-
 # zahlwort2num.NET
 
 :de: :de: :de:
@@ -6,7 +5,7 @@ A small but useful package for converting German numerals (including ordinal num
 
 To put it differently: _It allows reverse text normalization for numbers_.
 
-This package is a .NET adaptation of the original Python package [zahlwort2num](https://pypi.org/project/zahlwort2num/) by [warichet](https://github.com/warichet). If you are looking for a Python version, you might want to check out the original repository or the complementary library [num2words](https://github.com/savoirfairelinux/num2words).
+This package is a .NET adaptation of the original Python package [zahlwort2num](https://pypi.org/project/zahlwort2num/) by [Wortmeister HQ](https://github.com/Wortmeister-HQ). If you are looking for a Python version, you might want to check out the original repository or the complementary library [num2words](https://github.com/savoirfairelinux/num2words).
 
 :crying_cat_face: _Currently, it doesn't support the Swiss variant. TBD_ :switzerland:
 
@@ -56,5 +55,5 @@ dotnet test
 ```
 
 # Thanks 
-- @warichet for addressing the problem and creating the original Python package
+- @Wortmeister-HQ for addressing the problem and creating the original Python package
 - ...and to anyone who uses this package ;-)
