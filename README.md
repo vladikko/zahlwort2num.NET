@@ -11,10 +11,10 @@ This package is a .NET adaptation of the original Python package [zahlwort2num](
 
 # Installation
 
-Add the `zahlwort2num.NET` package to your .NET project using NuGet Package Manager:
+Add the `Zahlwort2Num` package to your .NET project using NuGet Package Manager:
 
 ```
-dotnet add package zahlwort2num.NET
+dotnet add package Zahlwort2Num
 ```
 
 # Usage
@@ -23,22 +23,20 @@ dotnet add package zahlwort2num.NET
 
 ```csharp
 using Zahlwort2Num;
-
-var converter = new ZahlConverter();
 ```
 
 ### Few examples:
 
 ```csharp
-Console.WriteLine(converter.Convert("Zweihundertfünfundzwanzig")); // => 225
-Console.WriteLine(converter.Convert("neunte")); // => "9."
-Console.WriteLine(converter.Convert("minus siebenhundert Millionen achtundsiebzig")); // => -700000078
+Console.WriteLine(ZahlConverter.Convert("Zweihundertfünfundzwanzig")); // => 225
+Console.WriteLine(ZahlConverter.Convert("neunte")); // => "9."
+Console.WriteLine(ZahlConverter.Convert("minus siebenhundert Millionen achtundsiebzig")); // => -700000078
 ```
 
 _Or even stuff like:_ :see_no_evil:
 
 ```csharp
-Console.WriteLine(converter.Convert("sechshundertdreiundfünfzigtausendfünfhunderteinundzwanzig")); // => 653521
+Console.WriteLine(ZahlConverter.Convert("sechshundertdreiundfünfzigtausendfünfhunderteinundzwanzig")); // => 653521
 ```
 
 # Development

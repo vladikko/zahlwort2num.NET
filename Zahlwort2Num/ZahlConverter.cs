@@ -1,6 +1,6 @@
 ﻿namespace Zahlwort2Num
 {
-    public class ZahlConverter
+    public static class ZahlConverter
     {
         private static readonly Dictionary<string, int> CONST_NUMS = new Dictionary<string, int>
         {
@@ -46,23 +46,12 @@
         private static readonly string[] SCALES = { "million", "milliarde", "billion", "billiarde", "trillion", "trilliarde", "quadrillion", "quadrilliarde" };
         private static readonly int MAX_SC = SCALES.Length;
 
-        private string number;
-        private Func<string, int> convt2;
-        private Func<string, int> convh2;
-        private Func<string, int> convu2;
-
-        public ZahlConverter(string number)
-        {
-            this.number = number.ToLower().Trim();
-            this.convt2 = (num) => Mult(num, "tausend", 1000, convh2);
-            this.convh2 = (num) => Mult(num, "hundert", 100, convu2);
-            this.convu2 = (num) => Mult(num, "und", 1, word => CONST_NUMS[word]);
-        }
-
-        public int Convert()
+        public static int Convert(string number)
         {
             if (string.IsNullOrEmpty(number))
                 throw new ArgumentException("Input cannot be null or empty.");
+
+            number = number.ToLower().Trim();
 
             if (number.StartsWith("minus"))
             {
@@ -73,7 +62,7 @@
             return OrdBn(number);
         }
 
-        private int Mult(string number, string splitter, int factor, Func<string, int> func)
+        private static int Mult(string number, string splitter, int factor, Func<string, int> func)
         {
             var split = number.Split(new[] { splitter }, StringSplitOptions.None);
             if (split.Length == 2)
@@ -92,7 +81,7 @@
             }
         }
 
-        private int ConvOrd(string number)
+        private static int ConvOrd(string number)
         {
             if (ORD_SUFFICES.Any(suffix => number.EndsWith(suffix)))
             {
@@ -110,7 +99,7 @@
             return Convt2(number);
         }
 
-        private int OrdWithBN(string number, int idx)
+        private static int OrdWithBN(string number, int idx)
         {
             if (number.Split(' ').Length == 1 || idx > MAX_SC - 1)
                 return ConvOrd(number);
@@ -131,22 +120,22 @@
             return OrdWithBN(number, idx + 1);
         }
 
-        private int OrdBn(string number)
+        private static int OrdBn(string number)
         {
             return OrdWithBN(number, 0);
         }
 
-        private int Convt2(string number)
+        private static int Convt2(string number)
         {
             return Mult(number, "tausend", 1000, Convh2);
         }
 
-        private int Convh2(string number)
+        private static int Convh2(string number)
         {
             return Mult(number, "hundert", 100, Convu2);
         }
 
-        private int Convu2(string number)
+        private static int Convu2(string number)
         {
             return Mult(number, "und", 1, word =>
             {
@@ -155,11 +144,6 @@
                 return value;
             });
         }
-
-        public static int Convert(string number)
-        {
-            var converter = new ZahlConverter(number);
-            return converter.Convert();
-        }
     }
 }
+

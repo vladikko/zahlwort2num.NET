@@ -8,6 +8,16 @@
     <RepositoryUrl>https://github.com/vladikko/zahlwort2num.NET</RepositoryUrl>
     <Authors>vladikko</Authors>
     <Description>zahlwort2num.NET is a .NET library designed to convert German numerals, including ordinal numbers, written as strings into numeric form. This package provides functionality for reverse text normalization, allowing developers to easily parse and interpret German numerical expressions within their .NET applications.</Description>
+    <PackageProjectUrl>https://github.com/vladikko/zahlwort2num.NET</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.1.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
